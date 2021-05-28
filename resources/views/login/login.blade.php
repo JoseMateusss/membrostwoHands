@@ -76,6 +76,9 @@
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
                                     </div>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Criar conta</a>
+                                    </div>
                                     
                                 </div>
                             </div>

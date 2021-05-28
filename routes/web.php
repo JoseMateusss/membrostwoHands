@@ -16,3 +16,6 @@ Route::get('/', 'homeController@index')->name('home');
 //Rotas de login
 Route::get('login','Auth\LoginController@index')->name('login');
 Route::post('login', 'Auth\LoginController@authenticate');
+
+//Rotas de usuários
+Route::resource('users', 'userController');

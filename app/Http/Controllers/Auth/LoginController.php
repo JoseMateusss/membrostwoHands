@@ -70,7 +70,7 @@ class LoginController extends Controller
     protected function validator($data){
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:100'],
-            'password' => ['required', 'string', 'min:8']
+            'password' => ['required', 'string', 'min:4']
         ]);
     }
 }
