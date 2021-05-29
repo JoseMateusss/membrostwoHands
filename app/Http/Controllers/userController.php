@@ -10,18 +10,31 @@ use App\User;
 
 class userController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->middleware('auth');
+        //$this->middleware('can:edit-users');
+    }
     public function index()
     {
+        $loggedId = intval(Auth::id());
         $users = User::all();
         return view('users.index',[
-            'users' => $users
+            'users' => $users,
+            'loggedId' => $loggedId
         ]);
     }
+
+    /* public function users(){
+        $users = User::all();
+
+        $response = array();
+        foreach($users as $user){
+            $user['options'] = "<div><button onclick='alert(\"".$user['name']."\")' class='button button-out-purple'>Deletar</button></div>";
+            $response['data'][] = $user;
+        }
+
+        echo json_encode($response);
+    } */
 
     /**
      * Show the form for creating a new resource.
@@ -77,7 +90,7 @@ class userController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -88,7 +101,14 @@ class userController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        if($user){
+            return view('users.edit', [
+                'user' => $user
+            ]);
+        }else{
+            return redirect()->route('users.index');
+        }
     }
 
     /**
@@ -100,7 +120,69 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        if($user){
+            $data = $request->only([
+                'name',
+                'email',
+                'password',
+                'password_confirmation'
+            ]);
+            
+            $validator = Validator::make([
+                'name' => $data['name'],
+                'email' => $data['email']
+
+            ],
+            [
+                'name' => ['required', 'string', 'max:100'],
+                'email' => ['required', 'string', 'max:100']
+            ]);
+           
+
+            $user->name = $data['name'];
+
+            if($user->email != $data['email']){
+                $hasEmail = User::where('email', $data['email'])->get();
+                if(count($hasEmail) === 0){
+                    $user->email = $data['email'];
+                }else{
+                    $validator->errors()->add('email', __('validation.unique',[
+                        'attribute' => 'email'
+                    ]));
+                }
+            }
+            
+            
+            if(!empty($data['password'])){
+                if(strlen($data['password']) >=4){
+                    if($data['password'] === $data['password_confirmation']){
+                        $user->password = Hash::make($data['password']);
+                    }else{
+                        $validator->errors()->add('password', __('validation.confirmed',[
+                            'attribute' => 'password'
+                            
+                        ]));
+                    }
+                }else{
+                    $validator->errors()->add('password', __('validation.min.string',[
+                        'attribute' => 'password',
+                        'min' => 4
+                    ]));
+                    
+                }
+               
+            }
+            if(count($validator->errors()) > 0){
+                return redirect()->route('users.edit', [
+                    'user' => $id
+                    ])->withErrors($validator);
+            }
+            $user->save();
+        }
+        
+        return redirect()->route('users.index');
     }
 
     /**
@@ -111,6 +193,11 @@ class userController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $loggedId = Auth::id();
+        if($loggedId != $id){
+            $user = User::find($id);
+            $user->delete();
+        }
+        return redirect()->route('users.index');
     }
 }

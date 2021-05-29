@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    <h2>Adiconar novo usuário</h2>    
+    <h1 class="h3 mb-2 text-gray-800">Adiconar novo usuário</h1>    
 @endsection
 
 @section('page-content')
