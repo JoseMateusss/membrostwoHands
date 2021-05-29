@@ -53,6 +53,7 @@ class LoginController extends Controller
         ]);
 
         $validator = $this->validator($data);
+        $remember = $request->input('remember', false);
 
         if($validator->fails()){
             return redirect()->route('login')
@@ -60,11 +61,19 @@ class LoginController extends Controller
             ->withInput();
         }
 
-        if(Auth::attempt($data)){
+        if(Auth::attempt($data, $remember)){
             return redirect()->route('home');
         }else{
-            echo "entrou no else";
+            $validator->errors()->add('password', 'Email e/ou senha inválidos');
+            return redirect()->route('login')
+            ->withErrors($validator)
+            ->withInput();
         }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
     }
     
     protected function validator($data){

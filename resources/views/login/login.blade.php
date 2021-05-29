@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
 
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet') }}" type="text/css">
@@ -75,9 +75,6 @@
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Criar conta</a>
                                     </div>
                                     
                                 </div>
