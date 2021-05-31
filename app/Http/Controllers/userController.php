@@ -29,7 +29,8 @@ class userController extends Controller
 
         $response = array();
         foreach($users as $user){
-            $user['options'] = "<div><button onclick='alert(\"".$user['name']."\")' class='button button-out-purple'>Deletar</button></div>";
+            $user['options'] = '<a href="users/'.$user['id'].'/edit/" class="btn btn-sm btn-info">Editar</a> ';
+            $user['options'] .= '<a href="'.$user['id'].'/edit/" class="btn btn-sm btn-danger">Deletar</a>';
             $response['data'][] = $user;
         }
 

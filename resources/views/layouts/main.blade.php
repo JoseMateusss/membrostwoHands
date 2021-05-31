@@ -59,9 +59,18 @@
                 Coprodução
             </div>
             <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/users') }}">
+                <a class="nav-link" href="" data-toggle="collapse" data-target="#collapseUtilities">
                     <i class="fas fa-users"></i>
                     <span>Usuários</span></a>
+                <div id="collapseUtilities" class="collapse {{ request()->is('users*') ? 'show' : '' }}" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item {{ request()->is('users') ? 'active' : '' }}" href="{{ url('/users') }}">Ver</a>
+                    <a class="collapse-item {{ request()->is('users/create') ? 'active' : '' }}" href="{{ route('users.create') }}">Criar novo</a>
+                    
+                </div>
+            </div>    
             </li>
 
             <li class="nav-item {{ request()->is('dashboar*') ? 'active' : '' }}">
@@ -128,16 +137,9 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Perfil
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

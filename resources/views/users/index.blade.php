@@ -11,7 +11,7 @@
 @endsection
 
 @section('page-content')
-    <div class="card">
+    {{-- <div class="card">
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
@@ -55,11 +55,9 @@
 
             
         </div>
-    </div>
-    <div class="card shadow mb-4 mt-5">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-        </div>
+    </div> --}}
+    <div class="card shadow mb-4 mt-3">
+        
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -72,6 +70,14 @@
                             
                         </tr>
                     </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Opções</th>
+                        </tr>
+                    </tfoot>    
                     <tbody>
                         <tr>
                             <td>Tiger Nixon</td>
