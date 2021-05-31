@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('link')
+    <link href="{{ url('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+@endsection
+
 @section('title')
     <h1 class="h3 mb-2 text-gray-800">Usuários do Sistema
         <a href="{{ route('users.create') }}" class="btn btn-sm btn-success">Novo usuário</a>
@@ -48,8 +52,43 @@
                     @endforeach
                 </tbody>
             </table>
+
             
         </div>
-        
+    </div>
+    <div class="card shadow mb-4 mt-5">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Opções</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>  
+@section('scripts')
+
+<script src="{{ url('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ url('assets/js/demo/datatables-demo.js') }}"></script>
+@endsection
 @endsection

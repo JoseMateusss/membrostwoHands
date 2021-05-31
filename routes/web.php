@@ -20,3 +20,6 @@ Route::get('logout', 'Auth\LoginController@logout' )->name('logout');
 
 //Rotas de usuários
 Route::resource('users', 'userController');
+
+//Rota de dados de usuarios via json
+Route::get('dataapi', 'userController@users');

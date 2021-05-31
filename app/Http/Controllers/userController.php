@@ -11,7 +11,7 @@ use App\User;
 class userController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
+        //$this->middleware('auth');
         //$this->middleware('can:edit-users');
     }
     public function index()
@@ -24,7 +24,7 @@ class userController extends Controller
         ]);
     }
 
-    /* public function users(){
+    public function users(){
         $users = User::all();
 
         $response = array();
@@ -34,8 +34,7 @@ class userController extends Controller
         }
 
         echo json_encode($response);
-    } */
-
+    }
     /**
      * Show the form for creating a new resource.
      *
