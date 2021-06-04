@@ -8,6 +8,7 @@
     <meta name="description" content="Área de membros Twohands MKT">
     <meta name="author" content="José Mateus do Nascimento Oliveira">
 
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -45,10 +46,10 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('home') }}">
-                    <i class="fas fa-handshake"></i>
-                    <span>Inicio</span></a>
+            <li class="nav-item {{ request()->is('dashboar*') ? 'active' : '' }}">
+                <a class="nav-link " href="{{ url('/users') }}">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -89,11 +90,7 @@
                 </div>
             </li>
 
-            <li class="nav-item {{ request()->is('dashboar*') ? 'active' : '' }}">
-                <a class="nav-link " href="{{ url('/users') }}">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Dashboard</span></a>
-            </li>
+           
             
             <hr class="sidebar-divider">
 

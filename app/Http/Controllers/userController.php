@@ -30,7 +30,7 @@ class userController extends Controller
         $response = array();
         foreach($users as $user){
             $user['options'] = '<a href="users/'.$user['id'].'/edit/" class="btn btn-sm btn-info">Editar</a> ';
-            $user['options'] .= '<a href="'.$user['id'].'/edit/" class="btn btn-sm btn-danger">Deletar</a>';
+            $user['options'] .= '<button type="button" class="btn btn-sm btn-danger" onclick="testeclick('.$user['id'].')">Deletar</button>';
             $response['data'][] = $user;
         }
 
@@ -78,7 +78,7 @@ class userController extends Controller
         $user->email = $data['email'];
         $user->password = Hash::make($data['password']);
         $user->save();
-
+        
         return redirect()->route('users.index');
     }
 
@@ -197,7 +197,10 @@ class userController extends Controller
         if($loggedId != $id){
             $user = User::find($id);
             $user->delete();
+            return response('ok', 200);
         }
-        return redirect()->route('users.index');
+
+        return response('Essa operação não pode ser completada', 404);
+        
     }
 }

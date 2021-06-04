@@ -80,6 +80,7 @@
                     </tfoot>    
                     <tbody>
                         <tr>
+                            
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
@@ -90,11 +91,19 @@
                 </table>
             </div>
         </div>
+        
     </div>  
 @section('scripts')
 
 <script src="{{ url('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{ url('assets/js/demo/datatables-demo.js') }}"></script>
+
+    <script>
+       
+            
+      
+    </script>
 @endsection
 @endsection

@@ -1,5 +1,6 @@
 @extends('layouts.main')
 
+
 @section('title')
     <h1 class="h3 mb-2 text-gray-800">Adiconar novo usuário</h1>    
 @endsection
@@ -50,11 +51,14 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <input type="submit" value="Cadastrar" class="btn btn-success">
+                                    <input type="submit" value="Cadastrar" class="btn btn-success testebutton">
                                 </div>
                         </div>
                         
                     </form>
                 </div>
             </div>
+@section('scripts')
+    
+@endsection
 @endsection
