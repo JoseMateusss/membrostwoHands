@@ -44,7 +44,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+        @can('admin')
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{ request()->is('dashboar*') ? 'active' : '' }}">
                 <a class="nav-link " href="{{ url('/users') }}">
@@ -60,7 +60,7 @@
                 Coprodução
             </div>
             <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
-                <a class="nav-link" href="" data-toggle="collapse" data-target="#collapseUtilities">
+                <a class="nav-link" href="{{ url('/users') }}" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
                     <i class="fas fa-users"></i>
                     <span>Usuários</span></a>
                 <div id="collapseUtilities" class="collapse {{ request()->is('users*') ? 'show' : '' }}" aria-labelledby="headingUtilities"
@@ -73,6 +73,7 @@
                 </div>
             </div>    
             </li>
+        
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -89,26 +90,21 @@
                     </div>
                 </div>
             </li>
-
+        
            
             
             <hr class="sidebar-divider">
-
+        @endcan
             <!-- Heading -->
             <div class="sidebar-heading">
                 Experts
             </div>
 
-           
-
-            <!-- Nav Item - Charts -->
-           
-
-            <!-- Nav Item - Tables -->
+           <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <i class="far fa-address-book"></i>
+                    <span>Minhas aulas</span></a>
             </li>
 
             <!-- Divider -->
