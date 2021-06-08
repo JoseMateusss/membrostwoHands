@@ -8,12 +8,8 @@
 @section('page-content')
 
         @if($errors->any())
-            <div class="alert alert-danger">
-                <h5>
-                    <i class="fas fa-exclamation-triangle"></i>
-                    Ocorreu um erro
-                </h5>
-                <ul>
+            <div class="alert alert-danger border-left-danger" role="alert">
+                <ul class="pl-4 my-2">
                     @foreach ($errors->all() as $error)
                         <li>{{$error}}</li>
                     @endforeach

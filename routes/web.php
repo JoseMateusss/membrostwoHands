@@ -20,6 +20,8 @@ Route::get('logout', 'Auth\LoginController@logout' )->name('logout');
 
 //Rotas de usuários
 Route::resource('users', 'userController');
+Route::get('/profile', 'profileController@index')->name('profile');
+Route::put('/profile', 'profileController@update')->name('profile.update');
 
 //Rota de dados de usuarios via json
 Route::get('dataapi', 'userController@users');
