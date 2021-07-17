@@ -52,13 +52,6 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Coprodução
-            </div>
             <li class="nav-item {{ request()->is('users*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/users') }}" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
                     <i class="fas fa-users"></i>
@@ -71,22 +64,26 @@
                     <a class="collapse-item {{ request()->is('users/create') ? 'active' : '' }}" href="{{ route('users.create') }}">Criar novo</a>
                     
                 </div>
-            </div>    
             </li>
-        
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Coprodução
+            </div>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>Aulas</span>
+                    <i class="fas fa-rocket"></i>
+                    <span>Lançamentos</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Opções de aulas:</h6>
-                        <a class="collapse-item" href="login.html">Ver todas</a>
-                        <a class="collapse-item" href="register.html">Nova aula</a>
-                        <a class="collapse-item" href="forgot-password.html">Novo tópico de aula</a>
-                       
+                        <h6 class="collapse-header">Opções de lançamento:</h6>
+                        <a class="collapse-item" href="login.html">Ver todos</a>
+                        <a class="collapse-item" href="register.html">Novo lançamento</a>
                     </div>
                 </div>
             </li>
